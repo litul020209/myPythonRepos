@@ -1,0 +1,11 @@
+list1=[1,2,3,4]
+#append()
+list1.append(5)
+print(list1)
+#insert()
+list2=[6,7,8,]
+list2.insert(3,9)
+print(list2)
+#extend()
+list1.extend(list2)
+print(list1)

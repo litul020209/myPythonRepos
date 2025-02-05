@@ -1,0 +1,15 @@
+a=1
+b=1.1
+c=True
+d='litu'
+e=complex(2,3)
+print(type(a))
+print(a)
+print(type(b))
+print(b)
+print(type(c))
+print(c)
+print(type(d))
+print(d)
+print(type(e))
+print(e)
