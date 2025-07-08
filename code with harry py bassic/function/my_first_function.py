@@ -9,7 +9,8 @@ def name(a,b):
     return sum
 
 
-name(a,b)
+
 a=int(input("x :"))
 b=int(input("y :"))
+name(a,b)
 
