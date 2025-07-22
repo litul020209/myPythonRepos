@@ -19,11 +19,7 @@ class student:
              self.mark=80
         else:
              self.mark=70
-        return self.mark
-        
-    
-       
-        
+        return self.mark      
 
 
 student_01=student("litul" ,21, "A" ,50)
