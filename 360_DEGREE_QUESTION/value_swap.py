@@ -8,6 +8,3 @@ print(b)
 
 
 
-m=10
-n=m>>2
-print(n)
