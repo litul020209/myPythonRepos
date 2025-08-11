@@ -1,4 +1,6 @@
-l_01=[1,5,4,6,3,7,8,2,9]
+l_01=[2,4,7,9,4]
+set_0=set(l_01)
+l_01=list(l_01)
 a=True
 while a==True:
     Swap=False
