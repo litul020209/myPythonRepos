@@ -1,19 +1,11 @@
-# Checking if a list is empty
-# my_list = []
-# if not my_list:
-#     print("The list is empty.")
+str1="haloo"
+s=str1[:2]
+print(s)
+s=s[::-1]
+print(s)
+ans=str1.replace(str1[:2],s)
+print(ans)
 
-# # Checking if a string is empty
-# user_input = ""
-# if not user_input:
-#     print("Please enter some text.")
-
-# # Checking if a boolean variable is False
-# is_active = False
-# if not is_active:
-#     print("User account is inactive.")
-
-# # Checking if a number is not zero (zero is considered falsy)
-# value = 0
-# if not value:
-#     print("The value is zero.")
+a=["abcd","ef"]
+b=str(a)
+print(b)
