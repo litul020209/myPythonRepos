@@ -1,0 +1,1 @@
+print("i am a good boy \n and you also a good boy")
