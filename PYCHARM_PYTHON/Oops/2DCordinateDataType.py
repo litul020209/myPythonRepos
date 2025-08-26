@@ -1,5 +1,7 @@
 import math
-from sympy import symbols, Eq, simplify
+
+from sympy import symbols, simplify
+
 
 class coordinate:
     def __init__(self,a,b):
