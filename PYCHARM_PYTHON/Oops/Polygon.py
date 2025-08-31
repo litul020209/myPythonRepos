@@ -3,6 +3,7 @@ class Polygon:
     def __init__(self):
         pass
     def dimension(self):
+        pass
         
 
 class Triangle(Polygon):
