@@ -1,7 +1,6 @@
 
 my_list=[1234445555,-789044,111100002223409,]
 res=[]
-
 list_0=[]
 list_negative=[]
 zero_negative_index=1
