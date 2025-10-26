@@ -3,7 +3,7 @@ s=(n-1)*2
 for i in range(1,n+1):
     
     for j in range(s):
-       print("*",end=" ")
+       print(" ",end=" ")
     d=i
     m=i*2-1
     e=m-1
