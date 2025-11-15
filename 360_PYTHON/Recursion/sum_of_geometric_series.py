@@ -1,14 +1,15 @@
+def geoMetric(start,ratio,num,ans):
+    if num!=0:
+        number=start*(ratio**(num-1))
+        
+        ans=ans+number
+        geoMetric(start,ratio,num-1,ans)
+        print(number)
+    else:
+        print(ans)    
 
-def helper():
-    pass
-
-def geometryRatio(n,s,r,sum):
-    if n==1:
-        return s
-    pass
-
-s=int(input("1st number: "))
-r=int(input("Ratio: "))
+s=int(input("s: "))
 n=int(input("n: "))
-sum=0
-print(geometryRatio(n,s,r,sum))
+r=int(input("r: "))
+res=0
+geoMetric(s,r,n,res)
