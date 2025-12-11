@@ -1,124 +1,151 @@
-import math as m
-class fraction:
-    def __init__(self,x,y=None):
+# import sys
+# a=10
+# b=20
+# c=30
+# print(sys.getrefcount(a))
+# print(sys.getrefcount(b))
+# print(sys.getrefcount(c))
+# a1=10
+# b1=20
+# c1=30
+# print(sys.getrefcount(a))
+# print(sys.getrefcount(b))
+# print(sys.getrefcount(c))
 
-        if isinstance(x, str):
-            a, b = x.split("/")
-            self.x = int(a)
-            self.y = int(b)        
-        elif isinstance(x, int) and isinstance(y, int):
-            self.x = x
-            self.y = y       
-        else:
-            raise ValueError("Invalid fraction input")
+# def print_patient(self):
+    #     for o in Hospital.hospital_patient:
+    #         print(o.name)
+    #         print(o.age)
+    #         print(o.gender)
+    #         print("-"*7)
 
+# doc={}
+# doc["a"]={}
+# doc["b"]={}
 
-        if self.x < 0 or self.y < 0:
-            if self.x < 0 and self.y < 0:
-                self.x=-self.x
-                self.y=-self.y
+# print(doc)
+# class Hospital:
+#     hospital_patient=[]
+#     hospital_doctors={
+#         "Neurologist":{},
+#         "Cardiologist":{},
+#         "Medicine":{},
+#         "Nephrologist":{},
+#         "Oncologist":{},
+#         "Hepatologist":{},
+#         "Orthologist":{},
+#         "Surgeon":{},
+#         "Dermatologist":{},
+#         "Immunplogist":{},
+#         "Gastroenterologist":{},
+#         "Ophthalmologist":{},
+#         "Endocrinologists":{},
+#         "Otolaryngologist":{},
+#         "Pulmonologist":{},
+#         "Pediatric":{},
+#         "Gynecologist":{},
+#         "Dentist":{},
+#         "Urologist":{}
+#     }
+    
+#     @classmethod
+#     def add_doctor(cls,doctor):
+#         match doctor.specialisation:
+#             case "Neurologist":
+#                 Hospital.hospital_doctors["Neurologist"][doctor]=[]
+#             case "Cardiologist":
+#                 Hospital.hospital_doctors["Cardiologist"][doctor]=[]
+#             case "Medicine":
+#                 Hospital.hospital_doctors["Medicine"][doctor]=[]
+#             case "Oncologist":
+#                 Hospital.hospital_doctors["Oncologist"][doctor]=[]
+#             case "Hepatologist":
+#                 Hospital.hospital_doctors["Hepatologist"][doctor]=[]
+#             case "Orthologist":
+#                 Hospital.hospital_doctors["Orthologist"][doctor]=[]
+#             case "Surgeon":
+#                 Hospital.hospital_doctors["Surgeon"][doctor]=[]
+#             case "Dermatologist":
+#                 Hospital.hospital_doctors["Dermatologist"][doctor]=[]
+#             case "Immunplogist":
+#                 Hospital.hospital_doctors["Immunplogist"][doctor]=[]
+#             case "Gastroenterologist":
+#                 Hospital.hospital_doctors["Gastroenterologist"][doctor]=[]
+#             case "Ophthalmologist":
+#                 Hospital.hospital_doctors["Ophthalmologist"][doctor]=[]
+#             case "Endocrinologists":
+#                 Hospital.hospital_doctors["Endocrinologists"][doctor]=[]
+#             case "Otolaryngologist":
+#                 Hospital.hospital_doctors["Otolaryngologist"][doctor]=[]
+#             case "Pulmonologist":
+#                 Hospital.hospital_doctors["Pulmonologist"][doctor]=[]
+#             case "Pediatric":
+#                 Hospital.hospital_doctors["Pediatric"][doctor]=[]
+#             case "Gynecologist":
+#                 Hospital.hospital_doctors["Gynecologist"][doctor]=[]
+#             case "Dentist":
+#                 Hospital.hospital_doctors["Dentist"][doctor]=[]
+#             case "Urologist":
+#                 Hospital.hospital_doctors["Urologist"][doctor]=[]
+#             case "Nephrologist":
+#                 Hospital.hospital_doctors["Nephrologist"][doctor]=[]
+#             case _:
+#                 print("please check your specialisation")
             
+#     @classmethod
+#     def add_patient(cls,patient):
+#         Hospital.hospital_patient+=[patient]
+    
+    
+#     @classmethod
+#     def book_appointment(cls):
+#         cls.disease_map = {
+#            "Brain"       :      "Neurologist",
+#            "Heart"       :      "Cardiologist",
+#            "Fever"       :      "Medicine",
+#            "Kidney"      :      "Nephrologist",
+#            "Cancer"      :      "Oncologist",
+#            "Liver"       :      "Hepatologist",
+#            "Ortho"       :      "Orthologist" ,
+#            "Surgery"     :      "Surgeon",
+#            "Skin"        :      "Dermatologist",
+#            "Immunity"    :      "Immunplogist",
+#            "Stomach"     :      "Gastroenterologist",
+#            "Eye"         :      "Ophthalmologist",
+#            "Thyroid"     :      "Endocrinologists",
+#            "ENT"         :      "Otolaryngologist",
+#            "Lungs"       :      "Pulmonologist",
+#            "Newborns"    :      "Pediatric",
+#            "Pregnancy"   :      "Gynecologist",
+#            "Teeth"       :      "Dentist",
+#            "Urine"       :      "Urologist"
+#         } 
+        
+#         for  p1 in Hospital.hospital_patient:
+#             if p1.doctor_assign==None:
+#                 cls.specific_department=p1.disease
+#                 while True:
+#                     for k in Hospital.hospital_doctors[cls.specific_department]:
+#                         if not Hospital.hospital_doctors[cls.specific_department][k]:
+#                            Hospital.hospital_doctors[cls.specific_department][k]+=[p1]
+                           
 
-        if self.x==0 or self.y==0:
-            if self.x==0:
-                self.v=0
-            elif self.y==0:
-                self.v=m.inf
+                        
 
-        elif self.x>= self.y:
-            if self.x%self.y==0:
-                self.value=self.x//self.y
-            elif  m.gcd(self.x,self.y) != 1:
-                v=m.gcd(self.x,self.y)
-                self.x=self.x//v
-                self.y=self.y//v 
+r=int(input("r:"))
+
+for i in range(1,r+1):
+    s=0
+    for j in range(1,i+1):
+        if j==i:
+            s=s+j
+            print(s,end=" ")
         else:
-            if  m.gcd(self.x,self.y) != 1:
-                v=m.gcd(self.x,self.y)
-                self.x=self.x//v
-                self.y=self.y//v 
+            print(j, end=" ")
+            s+=j
+    print("")
         
 
-    def __str__(self):
-        if self.x==0 or self.y==0:
-            return f"{self.v}"            
-        elif self.x>= self.y:
-            if self.x%self.y==0:
-                return f"{self.value}"
-            else:
-                return f"{self.x}/{self.y}"          
-        else:
-            return f"{self.x}/{self.y}"
 
 
-    def __add__(self,other):
-        self.denum=m.lcm(self.y,other.y)
-        self.nume=(self.x*(self.denum//self.y))+(other.x*(self.denum//other.y))
-        nume,denume=self.simplify(self.nume,self.denum)
-        return fraction(nume,denume)
-    
-
-    def __sub__(self,other):
-        self.denum=m.lcm(self.y,other.y)
-        self.nume=(self.x*(self.denum//self.y))-(other.x*(self.denum//other.y))
-        nume,denume=self.simplify(self.nume,self.denum)
-        return fraction(nume,denume)
-    
-    def __mul__(self,other):
-        self.nume=(self.x*other.x)
-        self.denum=(self.y*other.y)
-        nume,denume=self.simplify(self.nume,self.denum)
-        return fraction(nume,denume)
-    
-
-    def __truediv__(self,other):
-        self.nume=self.x*other.y
-        self.denum=self.y*other.x
-        nume,denume=self.simplify(self.nume,self.denum)
-        return fraction(nume,denume)
-
-    def simplify(self,nume,denum):
-        self.a=nume
-        self.b=denum
-
-        if self.a < 0 or self.b < 0:
-            if self.a < 0 and self.b < 0:
-                self.a=-self.a
-                self.b=-self.b
-
-
-        if self.a>= self.b:
-            if self.a%self.b==0:
-                self.value=self.a//self.b
-            elif  m.gcd(self.a,self.b) != 1:
-                v=m.gcd(self.a,self.b)
-                self.a=self.a//v
-                self.b=self.b//v 
-        else:
-            if  m.gcd(self.a,self.b) != 1:
-                v=m.gcd(self.a,self.b)
-                self.a=self.a//v
-                self.b=self.b//v 
-        return self.a,self.b
         
-f1=fraction(-1,5)
-f2=fraction(1,5)
-f3=fraction(2,5)
-f4=f1+f2+f3
-print(f4)
-print(type(f4))
-
-f7=f1-f2
-print(f7)
-print(type(f7))
-
-f8=fraction(8,4)
-f9=fraction(3,4)
-f10=f8/f9
-f11=f8/f9/f10
-print(f11)
-print(type(f11))
-
-f12=f8*f9
-print(f12)
-print(type(f12))

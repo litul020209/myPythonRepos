@@ -1,0 +1,1 @@
+print(rd.randint(1,10))
