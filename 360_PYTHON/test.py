@@ -132,19 +132,6 @@
 
                         
 
-r=int(input("r:"))
-
-for i in range(1,r+1):
-    s=0
-    for j in range(1,i+1):
-        if j==i:
-            s=s+j
-            print(s,end=" ")
-        else:
-            print(j, end=" ")
-            s+=j
-    print("")
-        
 
 
 
