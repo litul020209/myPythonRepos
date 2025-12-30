@@ -5,7 +5,9 @@ connect=mysql.connect(host="localhost",user="root",password="Biswal@12345",datab
 cur=connect.cursor()
 
 #excuttion part
-q="insert into sample values(1,'Litul','B',10000,'BBSR')"
+q="insert into sample" \
+"values(1,'Litul','B',10000,'BBSR')" 
+""
 cur.execute(q)
 connect.commit()
 for row in cur:
