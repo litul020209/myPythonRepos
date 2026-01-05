@@ -1,0 +1,1 @@
+halve_rev_str(str1[mid])
