@@ -1,158 +1,121 @@
 class Person:
     def __init__(self,name,age,gender):
-        self.name=name
-        self.age=age
-        self.gender=gender
-         
+        self.__name=name
+        self.__age=age
+        self.__gender=gender
+
+    @property
+    def name(self):
+        return self.__name
+    @name.setter
+    def name(self,n):
+        self.__name=n
+
+    @property
+    def age(self):
+        return self.__age
+    @age.setter
+    def age(self,a):
+        self.__age=a
+
+    @property
+    def gender(self):
+        return self.__gender
+    @gender.setter
+    def gender(self,g):
+        self.__gender=g       
 class Patienet(Person):
-    def __init__(self, name, age, gender,patient_id,disease,doctor_assign=None):
+    def __init__(self, name, age, gender,patient_id,disease,doctor_assign):
         super().__init__(name, age, gender)
-        self.patient_id=patient_id
-        self.disease=disease
-        self.doctor_assign=doctor_assign
+        self.__patient_id=patient_id
+        self.__disease=disease
+        self.__doctor_assign=doctor_assign
+    
+    @property
+    def patientid(self):
+        return self.__patient_id
+    @patientid.setter
+    def patientid(self,id):
+        self.__patient_id=id
+    
+    @property
+    def patientid(self):
+        return self.__patient_id
+    @patientid.setter
+    def patientid(self,id):
+        self.__patient_id=id
+
+    @property
+    def disease(self):
+        return self.__disease
+    @disease.setter
+    def disease(self,d):
+        self.__disease=d
+    
+    @property
+    def doctor_assign(self):
+        return self.__doctor_assign
+    @doctor_assign.setter
+    def doctor_assign(self,assign):
+        self.__doctor_assign=assign
 
 class Doctor(Person):
     def __init__(self, name, age, gender,doctor_id,specialisation):
         super().__init__(name, age, gender)
-        self.doctor_id=doctor_id
-        self.specialisation=specialisation
+        self.__doctor_id=doctor_id
+        self.__specialisation=specialisation
+
+    @property
+    def doctor_id(self):
+        return self.__doctor_id
+    @doctor_id.setter
+    def doctor_id(self,id):
+        self.__doctor_id=id
+    
+    @property
+    def specialisation(self):
+        return self.__specialisation
+    @specialisation.setter
+    def doctor_id(self,s):
+        self.__specialisation=s
 
 class Hospital:
-    hospital_patient=[]
-    hospital_doctors={
-        "Neurologist":{},
-        "Cardiologist":{},
-        "Medicine":{},
-        "Nephrologist":{},
-        "Oncologist":{},
-        "Hepatologist":{},
-        "Orthologist":{},
-        "Surgeon":{},
-        "Dermatologist":{},
-        "Immunplogist":{},
-        "Gastroenterologist":{},
-        "Ophthalmologist":{},
-        "Endocrinologists":{},
-        "Otolaryngologist":{},
-        "Pulmonologist":{},
-        "Pediatric":{},
-        "Gynecologist":{},
-        "Dentist":{},
-        "Urologist":{}
-    }
+    patient_details=[]
+    doctor_details=[]
+    doctor_wise_patient={}
+    def add_new_patient(self,p):
+        Hospital.patient_details.append(p)
+    def add_new_doctor(self,d):
+        Hospital.doctor_details.append(d)
+    def book_appoinment(self):
+        for d in Hospital.doctor_details:
+            patient_list=[]
+            for p in Hospital.patient_details:
+                if p.doctor_assign==d.name:
+                   patient_list.append(p)
+            Hospital.doctor_wise_patient[d]=patient_list
     
-    @classmethod
-    def add_doctor(cls,doctor):
-        match doctor.specialisation:
-            case "Neurologist":
-                Hospital.hospital_doctors["Neurologist"][doctor]=[]
-            case "Cardiologist":
-                Hospital.hospital_doctors["Cardiologist"][doctor]=[]
-            case "Medicine":
-                Hospital.hospital_doctors["Medicine"][doctor]=[]
-            case "Oncologist":
-                Hospital.hospital_doctors["Oncologist"][doctor]=[]
-            case "Hepatologist":
-                Hospital.hospital_doctors["Hepatologist"][doctor]=[]
-            case "Orthologist":
-                Hospital.hospital_doctors["Orthologist"][doctor]=[]
-            case "Surgeon":
-                Hospital.hospital_doctors["Surgeon"][doctor]=[]
-            case "Dermatologist":
-                Hospital.hospital_doctors["Dermatologist"][doctor]=[]
-            case "Immunplogist":
-                Hospital.hospital_doctors["Immunplogist"][doctor]=[]
-            case "Gastroenterologist":
-                Hospital.hospital_doctors["Gastroenterologist"][doctor]=[]
-            case "Ophthalmologist":
-                Hospital.hospital_doctors["Ophthalmologist"][doctor]=[]
-            case "Endocrinologists":
-                Hospital.hospital_doctors["Endocrinologists"][doctor]=[]
-            case "Otolaryngologist":
-                Hospital.hospital_doctors["Otolaryngologist"][doctor]=[]
-            case "Pulmonologist":
-                Hospital.hospital_doctors["Pulmonologist"][doctor]=[]
-            case "Pediatric":
-                Hospital.hospital_doctors["Pediatric"][doctor]=[]
-            case "Gynecologist":
-                Hospital.hospital_doctors["Gynecologist"][doctor]=[]
-            case "Dentist":
-                Hospital.hospital_doctors["Dentist"][doctor]=[]
-            case "Urologist":
-                Hospital.hospital_doctors["Urologist"][doctor]=[]
-            case "Nephrologist":
-                Hospital.hospital_doctors["Nephrologist"][doctor]=[]
-            case _:
-                print("please check your specialisation")
-            
-    @classmethod
-    def add_patient(cls,patient):
-        Hospital.hospital_patient+=[patient]
-    
-    
-    @classmethod
-    def book_appointment(cls):
-        cls.disease_map = {
-           "Brain"       :      "Neurologist",
-           "Heart"       :      "Cardiologist",
-           "Fever"       :      "Medicine",
-           "Kidney"      :      "Nephrologist",
-           "Cancer"      :      "Oncologist",
-           "Liver"       :      "Hepatologist",
-           "Ortho"       :      "Orthologist" ,
-           "Surgery"     :      "Surgeon",
-           "Skin"        :      "Dermatologist",
-           "Immunity"    :      "Immunplogist",
-           "Stomach"     :      "Gastroenterologist",
-           "Eye"         :      "Ophthalmologist",
-           "Thyroid"     :      "Endocrinologists",
-           "ENT"         :      "Otolaryngologist",
-           "Lungs"       :      "Pulmonologist",
-           "Newborns"    :      "Pediatric",
-           "Pregnancy"   :      "Gynecologist",
-           "Teeth"       :      "Dentist",
-           "Urine"       :      "Urologist"
-        } 
-        
-        for  p1 in Hospital.hospital_patient:
-            if p1.doctor_assign==None:
-                cls.specific_department=cls.disease_map[p1.disease]
-                while True:
-                    cls.doc_list=list(Hospital.hospital_doctors[cls.specific_department].keys())
-                    for i in range(len(cls.doc_list)):
-                        if not Hospital.hospital_doctors[cls.specific_department][cls.doc_list[i]]:
-                            Hospital.hospital_doctors[cls.specific_department][cls.doc_list[i]]+=[p1]
-                            break
-                        
-                        elif i==len(cls.doc_list)-1:
-                            Hospital.hospital_doctors[cls.specific_department][cls.doc_list[i]]+=[p1]
-                            break
+    def display_details(self):
+        for d, patients in Hospital.doctor_wise_patient.items():
+            for p in patients:
+                print(f"{p.name} is assigned with {d.name}")
 
 
-                        elif len(Hospital.hospital_doctors[cls.specific_department][cls.doc_list[i]])==len(Hospital.hospital_doctors[cls.specific_department][cls.doc_list[i+1]]):
-                            Hospital.hospital_doctors[cls.specific_department][cls.doc_list[i]]+=[p1]
-                            break
-                        
-                    break
-                   
-        
-                           
+p1=Patienet("Hari",21,"male","p10012026","fever","Dr Satya")
+p2=Patienet("Ram",56,"male","p10022026","mussel pain","Dr BB")
+p3=Patienet("Sriya",35,"female","p10032026","pregnent","Dr Neha")
 
-
-patient01=Patienet("Ramana","25","Male","HP001","Liver")   
-patient02=Patienet("Mahesh","27","Male","HP002","Liver")
-      
-doctor01=Doctor("Dr B Madhab","42","Male","HD001","Hepatologist")
-doctor02=Doctor("Dr R Narmda","48","Female","HD002","Hepatologist")
+d1=Doctor("Dr Satya",34,"male","d10012026","Medicine")
+d2=Doctor("Dr BB",38,"male","d10022026","Orthologist")
+d3=Doctor("Dr Neha",42,"female","d10032026","Gynacologist")
 
 h1=Hospital()
-h1.add_patient(patient01)
-h1.add_patient(patient02)
+h1.add_new_doctor(d1)
+h1.add_new_doctor(d2)
+h1.add_new_doctor(d3)
 
-h1.add_doctor(doctor01)
-h1.add_doctor(doctor02)
-h1.book_appointment()
-
-
-
-
+h1.add_new_patient(p1)
+h1.add_new_patient(p2)
+h1.add_new_patient(p3)
+h1.book_appoinment()
+h1.display_details()
